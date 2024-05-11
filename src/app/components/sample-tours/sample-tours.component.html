@@ -1,0 +1,24 @@
+
+<!-- <div class="sample-tours">
+  <h1>Sample Tours</h1>
+  <div class="tour-list"> -->
+    <!-- Apply *ngFor to a div, not to the app-tour component -->
+    <!-- <div *ngFor="let tour of tours">
+      <app-tour [tour]="tour"></app-tour>
+    </div>
+  </div>
+</div> -->
+<div class="container">
+  <h3>Sample Tours</h3>
+  <div class="row">
+    <div class="col-md-3" *ngFor="let tour of tours">
+      <app-tour [tour]="tour"></app-tour>
+    </div>
+  </div>
+</div>
+<!-- <div class="sample-tours">
+  <h1>Sample Tours</h1>
+  <div class="tour-list">
+    <app-tour *ngFor="let tour of tours" [tour]="tour"></app-tour>
+  </div>
+</div> -->
