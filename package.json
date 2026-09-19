@@ -1,14 +1,17 @@
 {
   "name": "saroj-india-travellers",
   "version": "0.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=18.19.0"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^17.3.0",
     "@angular/common": "^17.3.0",
