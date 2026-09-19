@@ -2,6 +2,7 @@ import { CurrencyPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import { DESTINATIONS } from '../data/destinations';
 import { SITE, whatsappUrl } from '../data/site';
 import { TOURS } from '../data/tours';
 
@@ -14,10 +15,11 @@ import { TOURS } from '../data/tours';
 })
 export class HomePageComponent {
   site = SITE;
+  places = DESTINATIONS;
   tours = TOURS.filter((tour) => tour.slug !== 'custom-india');
   wa = whatsappUrl('Hello Saroj India Tours — I would like a private itinerary quote.');
   hero =
-    'https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1800&q=80';
+    'https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=1800&q=80';
 
   styles = [
     {

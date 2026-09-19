@@ -55,6 +55,11 @@ import { Tour, getTour } from '../data/tours';
               </div>
             </div>
             <a class="btn btn-ghost" routerLink="/tours">All journeys</a>
+            <p class="fineprint" style="margin-top:1rem">
+              <a routerLink="/when-to-go">When to go</a> ·
+              <a routerLink="/guides/first-india-trip">First trip notes</a> ·
+              <a routerLink="/families">Families</a>
+            </p>
           </div>
           <div>
             <div class="card">

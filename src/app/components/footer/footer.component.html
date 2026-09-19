@@ -10,12 +10,29 @@
       <p>{{ site.city }}<br>{{ site.hours }}</p>
       <p><a [href]="'tel:' + site.phoneTel">{{ site.phoneDisplay }}</a><br>
         <a [href]="'mailto:' + site.email">{{ site.email }}</a></p>
+      <p>{{ site.payments }}</p>
     </div>
     <div>
-      <h3>Journeys</h3>
-      <p><a routerLink="/tours">All itineraries</a><br>
-        <a routerLink="/custom">Design a custom trip</a><br>
-        <a routerLink="/contact">Contact</a></p>
+      <h3>Plan</h3>
+      <p>
+        <a routerLink="/tours">Journeys</a><br>
+        <a routerLink="/destinations">Destinations</a><br>
+        <a routerLink="/when-to-go">When to go</a><br>
+        <a routerLink="/guides">Guides</a><br>
+        <a routerLink="/families">Families &amp; weddings</a><br>
+        <a routerLink="/how-it-works">How we book</a><br>
+        <a routerLink="/custom">Custom trip</a>
+      </p>
+    </div>
+    <div>
+      <h3>Company</h3>
+      <p>
+        <a routerLink="/about">About</a><br>
+        <a routerLink="/agents">Travel advisors</a><br>
+        <a routerLink="/contact">Contact</a><br>
+        <a routerLink="/privacy">Privacy</a><br>
+        <a routerLink="/terms">Booking terms</a>
+      </p>
     </div>
   </div>
   <div class="wrap">

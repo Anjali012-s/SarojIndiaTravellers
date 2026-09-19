@@ -8,7 +8,8 @@
     <nav class="nav" [class.open]="open">
       <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="close()">Home</a>
       <a routerLink="/tours" routerLinkActive="active" (click)="close()">Journeys</a>
-      <a routerLink="/about" routerLinkActive="active" (click)="close()">About</a>
+      <a routerLink="/destinations" routerLinkActive="active" (click)="close()">Destinations</a>
+      <a routerLink="/how-it-works" routerLinkActive="active" (click)="close()">How we book</a>
       <a routerLink="/custom" routerLinkActive="active" (click)="close()">Custom trip</a>
       <a routerLink="/contact" routerLinkActive="active" (click)="close()">Contact</a>
       <a class="btn" [href]="quoteLink" target="_blank" rel="noopener">WhatsApp quote</a>
