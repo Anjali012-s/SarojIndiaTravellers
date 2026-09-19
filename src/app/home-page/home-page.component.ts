@@ -1,33 +1,52 @@
-import { Component, OnInit } from '@angular/core';
-import { HomeSliderComponent } from './home-slider/home-slider.component';
-import { ExperiencesComponent } from '../experiences/experiences.component';
-import { ContactComponent } from '../components/contact/contact.component';
-import { FooterComponent } from '../components/footer/footer.component';
-import { SampleToursComponent } from '../components/sample-tours/sample-tours.component';
+import { CurrencyPipe } from '@angular/common';
+import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { Title } from '@angular/platform-browser';
+import { DESTINATIONS } from '../data/destinations';
+import { SITE, whatsappUrl } from '../data/site';
+import { TOURS } from '../data/tours';
+
 @Component({
   selector: 'app-home-page',
   standalone: true,
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss',
-  imports: [
-    HomeSliderComponent,
-    ExperiencesComponent,
-    ContactComponent,
-    FooterComponent,
-    SampleToursComponent,
-  ],
+  imports: [RouterLink, CurrencyPipe],
 })
-export class HomePageComponent implements OnInit {
-  imageSlides: any[] = new Array(3).fill({ id: -1, src: '' });
-  ngOnInit(): void {
-    this.imageSlides[0] = {
-      src: '/assets/images/img1.jpg',
-    };
-    this.imageSlides[1] = {
-      src: '/assets/images/img2.jpg',
-    };
-    this.imageSlides[2] = {
-      src: '/assets/images/img3.jpg',
-    };
+export class HomePageComponent {
+  site = SITE;
+  places = DESTINATIONS;
+  tours = TOURS.filter((tour) => tour.slug !== 'custom-india');
+  wa = whatsappUrl('Hello Saroj India Tours — I would like a private itinerary quote.');
+  hero =
+    'https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=1800&q=80';
+
+  styles = [
+    {
+      title: 'Heritage & palaces',
+      text: 'Delhi, Agra, Jaipur and the Rajasthan circuit — private car, licensed guides, hotels you choose.',
+    },
+    {
+      title: 'Wildlife add-on',
+      text: 'Ranthambore or Corbett attached to the Triangle. We handle park permits when you confirm dates.',
+    },
+    {
+      title: 'Spiritual North',
+      text: 'Varanasi dawn boat and aarti; Amritsar on request. Paced for families and first-time visitors.',
+    },
+    {
+      title: 'South with a partner',
+      text: 'Kerala houseboat and tea hills with a local ground partner — we stay accountable as your single desk.',
+    },
+  ];
+
+  steps = [
+    { n: '01', title: 'Tell us the brief', text: 'Dates, travellers, hotel band, must-sees, and anything we should not plan.' },
+    { n: '02', title: 'Receive a plan', text: 'Same working day: day-by-day, hotel options, inclusions, and a from-price in USD and INR.' },
+    { n: '03', title: 'Travel with a named desk', text: 'Chauffeur, guides, airport welcome, and WhatsApp while you are in India.' },
+  ];
+
+  constructor(title: Title) {
+    title.setTitle('Saroj India Tours | Private India journeys from Delhi');
   }
 }

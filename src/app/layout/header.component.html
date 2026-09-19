@@ -1,0 +1,18 @@
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a routerLink="/" class="logo" (click)="close()">
+      {{ site.brand }}
+      <span>Private India from Delhi</span>
+    </a>
+    <button class="menu-toggle" type="button" (click)="toggle()" aria-label="Menu">Menu</button>
+    <nav class="nav" [class.open]="open">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="close()">Home</a>
+      <a routerLink="/tours" routerLinkActive="active" (click)="close()">Journeys</a>
+      <a routerLink="/destinations" routerLinkActive="active" (click)="close()">Destinations</a>
+      <a routerLink="/how-it-works" routerLinkActive="active" (click)="close()">How we book</a>
+      <a routerLink="/custom" routerLinkActive="active" (click)="close()">Custom trip</a>
+      <a routerLink="/contact" routerLinkActive="active" (click)="close()">Contact</a>
+      <a class="btn" [href]="quoteLink" target="_blank" rel="noopener">WhatsApp quote</a>
+    </nav>
+  </div>
+</header>

@@ -1,3 +1,38 @@
 import { Routes } from '@angular/router';
+import { HomePageComponent } from './home-page/home-page.component';
+import { ToursPageComponent } from './pages/tours-page.component';
+import { TourDetailPageComponent } from './pages/tour-detail-page.component';
+import { AboutPageComponent } from './pages/about-page.component';
+import { CustomPageComponent } from './pages/custom-page.component';
+import { ContactPageComponent } from './pages/contact-page.component';
+import { HowItWorksPageComponent } from './pages/how-it-works-page.component';
+import { AgentsPageComponent } from './pages/agents-page.component';
+import { DestinationsPageComponent } from './pages/destinations-page.component';
+import { DestinationDetailPageComponent } from './pages/destination-detail-page.component';
+import { FamilyPageComponent } from './pages/family-page.component';
+import { GuidesPageComponent } from './pages/guides-page.component';
+import { FirstIndiaGuidePageComponent } from './pages/first-india-guide-page.component';
+import { WhenToGoPageComponent } from './pages/when-to-go-page.component';
+import { PrivacyPageComponent } from './pages/privacy-page.component';
+import { TermsPageComponent } from './pages/terms-page.component';
+import { NotFoundPageComponent } from './pages/not-found-page.component';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+  { path: '', component: HomePageComponent },
+  { path: 'tours', component: ToursPageComponent },
+  { path: 'tours/:slug', component: TourDetailPageComponent },
+  { path: 'destinations', component: DestinationsPageComponent },
+  { path: 'destinations/:slug', component: DestinationDetailPageComponent },
+  { path: 'how-it-works', component: HowItWorksPageComponent },
+  { path: 'agents', component: AgentsPageComponent },
+  { path: 'families', component: FamilyPageComponent },
+  { path: 'guides', component: GuidesPageComponent },
+  { path: 'guides/first-india-trip', component: FirstIndiaGuidePageComponent },
+  { path: 'when-to-go', component: WhenToGoPageComponent },
+  { path: 'about', component: AboutPageComponent },
+  { path: 'custom', component: CustomPageComponent },
+  { path: 'contact', component: ContactPageComponent },
+  { path: 'privacy', component: PrivacyPageComponent },
+  { path: 'terms', component: TermsPageComponent },
+  { path: '**', component: NotFoundPageComponent },
+];

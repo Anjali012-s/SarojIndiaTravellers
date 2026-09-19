@@ -1,0 +1,61 @@
+<form class="form" (ngSubmit)="submit()">
+  @if (sent) {
+    <p class="notice">Thank you. Email and WhatsApp should have opened with your brief. If nothing opened, write to {{ site.email }} or WhatsApp {{ site.phoneDisplay }}.</p>
+  }
+  <label for="eq-name">Full name</label>
+  <input id="eq-name" name="name" [(ngModel)]="model.name" required autocomplete="name" />
+
+  <div class="form-row">
+    <div>
+      <label for="eq-email">Email</label>
+      <input id="eq-email" type="email" name="email" [(ngModel)]="model.email" required autocomplete="email" />
+    </div>
+    <div>
+      <label for="eq-phone">Phone / WhatsApp</label>
+      <input id="eq-phone" name="phone" [(ngModel)]="model.phone" required autocomplete="tel" />
+    </div>
+  </div>
+  <div class="form-row">
+    <div>
+      <label for="eq-start">Travel start date</label>
+      <input id="eq-start" type="date" name="startDate" [(ngModel)]="model.startDate" />
+    </div>
+    <div>
+      <label for="eq-adults">Adults</label>
+      <input id="eq-adults" type="number" name="adults" min="1" [(ngModel)]="model.adults" />
+    </div>
+  </div>
+  <div class="form-row">
+    <div>
+      <label for="eq-children">Children</label>
+      <input id="eq-children" type="number" name="children" min="0" [(ngModel)]="model.children" />
+    </div>
+    <div>
+      <label for="eq-hotel">Hotel style</label>
+      <select id="eq-hotel" name="hotel" [(ngModel)]="model.hotel">
+        <option>3-star comfortable</option>
+        <option>4-star</option>
+        <option>5-star / heritage</option>
+        <option>Mix — tell us in notes</option>
+      </select>
+    </div>
+  </div>
+  <label for="eq-tour">Journey</label>
+  <select id="eq-tour" name="tour" [(ngModel)]="model.tour">
+    <option value="">Custom / not sure yet</option>
+    @for (tour of tours; track tour.slug) {
+      <option [value]="tour.name">{{ tour.name }}</option>
+    }
+  </select>
+  <label for="eq-budget">Budget per person</label>
+  <select id="eq-budget" name="budget" [(ngModel)]="model.budget">
+    <option>Under USD 1,000</option>
+    <option>USD 1,000–2,000 per person</option>
+    <option>USD 2,000–4,000 per person</option>
+    <option>USD 4,000+ / open</option>
+  </select>
+  <label for="eq-message">What should we know?</label>
+  <textarea id="eq-message" name="message" rows="4" [(ngModel)]="model.message" placeholder="Cities, mobility, celebrations, vegetarian meals, language…"></textarea>
+  <button class="btn" type="submit">Send on email + WhatsApp</button>
+  <p class="fineprint">{{ site.quoteSla }}. {{ site.deposit }}.</p>
+</form>

@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HomePageComponent } from '../app/home-page/home-page.component';
-import { ContactComponent } from './components/contact/contact.component';
+import { HeaderComponent } from './layout/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { SITE, whatsappUrl } from './data/site';
+
 @Component({
   selector: 'app-root',
   standalone: true,
+  imports: [RouterOutlet, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
-  imports: [RouterOutlet, HomePageComponent, ContactComponent],
 })
 export class AppComponent {
-  title = 'SarojIndiaTravellers';
+  wa = whatsappUrl('Hello Saroj India Tours — I would like help planning a private India journey.');
+  site = SITE;
 }
