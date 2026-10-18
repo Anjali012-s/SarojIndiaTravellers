@@ -1,9 +1,9 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "framework": null,
+  "framework": "angular",
   "installCommand": "npm install",
-  "buildCommand": "npm run build",
-  "outputDirectory": "browser",
+  "buildCommand": "npx ng build --configuration production",
+  "outputDirectory": "dist/saroj-india-travellers/browser",
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
