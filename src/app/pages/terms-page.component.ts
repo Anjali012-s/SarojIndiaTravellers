@@ -10,7 +10,7 @@ import { SITE } from '../data/site';
       <div class="wrap" style="max-width: 44rem">
         <p class="eyebrow">Legal</p>
         <h1>Booking terms</h1>
-        <p>Website from-prices are proposals. The signed or emailed quote is the contract.</p>
+        <p>Itineraries on this site are proposals. The signed or emailed quote is the contract.</p>
         <ul class="list">
           <li>{{ site.deposit }}</li>
           <li>Hotels and safari permits are confirmed only after the deposit clears.</li>

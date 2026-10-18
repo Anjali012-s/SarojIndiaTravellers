@@ -11,7 +11,12 @@ import { Title } from '@angular/platform-browser';
       <div class="wrap">
         <p class="eyebrow">Practical notes</p>
         <h1>Guides for planning India</h1>
-        <p>Short, usable pages — not a magazine. Written for first-timers booking a private car from Delhi.</p>
+        <p>Short, usable pages — not a magazine. Written for first-timers planning a private trip from Delhi.</p>
+        <p>
+          Looking for vehicles or a language guide on the ground?
+          <a routerLink="/fleet">Our fleet</a> ·
+          <a routerLink="/our-guides">Our guides</a>
+        </p>
         <div class="grid-2" style="margin-top: 2rem">
           <a class="card" routerLink="/guides/first-india-trip">
             <div class="card-body">

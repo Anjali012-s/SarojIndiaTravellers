@@ -19,8 +19,9 @@ import { SITE, whatsappUrl } from '../data/site';
         <h2>What we arrange</h2>
         <ul class="list">
           <li>Airport name-boards and staggered pickups (Delhi, Jaipur, Udaipur, Kochi)</li>
-          <li>Separate cars for elders or a late-arriving cousin</li>
-          <li>Jain, vegetarian, or no-onion kitchens flagged to hotels in advance</li>
+          <li>Sedan or SUV/MUV for elders, or one coach when the guest list travels together</li>
+          <li>Stay band you opt, including kitchens flagged Jain, vegetarian or no-onion in advance</li>
+          <li>Licensed guide in the language the family actually speaks</li>
           <li>Wheelchair-aware routing — we say when a fort is not practical</li>
           <li>Guest-list logistics for small palace or haveli weddings (not 500-person MICE)</li>
         </ul>

@@ -17,7 +17,8 @@ import { SITE, whatsappUrl } from '../data/site';
           <p><a [href]="'mailto:' + site.email">{{ site.email }}</a></p>
           <p>{{ site.area }}<br />{{ site.hours }}</p>
           <p>
-            <a class="btn" [href]="wa" target="_blank" rel="noopener">Open WhatsApp</a>
+            <a class="btn" [href]="'tel:' + site.phoneTel">Call {{ site.phoneDisplay }}</a>
+            <a class="btn btn-ghost" [href]="wa" target="_blank" rel="noopener" style="margin-left: 0.5rem">WhatsApp</a>
           </p>
           <p>
             We plan from New Delhi. The map is the city we operate from — ask on WhatsApp for a meeting point; we do not

@@ -1,4 +1,3 @@
-import { CurrencyPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Title } from '@angular/platform-browser';
@@ -9,12 +8,12 @@ import { Tour, getTour } from '../data/tours';
 @Component({
   selector: 'app-destination-detail-page',
   standalone: true,
-  imports: [RouterLink, CurrencyPipe],
+  imports: [RouterLink],
   template: `
     @if (place) {
       <section class="tour-hero" [style.backgroundImage]="'url(' + place.hero + ')'">
         <div class="wrap">
-          <p class="eyebrow">{{ place.searchPhrase }}</p>
+          <p class="eyebrow">{{ place.themes.join(' · ') }} · {{ place.searchPhrase }}</p>
           <h1>{{ place.name }}</h1>
         </div>
       </section>
@@ -33,7 +32,7 @@ import { Tour, getTour } from '../data/tours';
                 <div class="card-body">
                   <p class="meta">{{ tour.duration }}</p>
                   <h3>{{ tour.name }}</h3>
-                  <p class="price">From {{ tour.fromUsd | currency: 'USD' : 'symbol' : '1.0-0' }} pp</p>
+                  <p>{{ tour.region }}</p>
                 </div>
               </a>
             }

@@ -16,6 +16,8 @@ import { WhenToGoPageComponent } from './pages/when-to-go-page.component';
 import { PrivacyPageComponent } from './pages/privacy-page.component';
 import { TermsPageComponent } from './pages/terms-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page.component';
+import { FleetPageComponent } from './pages/fleet-page.component';
+import { OurGuidesPageComponent } from './pages/our-guides-page.component';
 
 export const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -29,6 +31,8 @@ export const routes: Routes = [
   { path: 'guides', component: GuidesPageComponent },
   { path: 'guides/first-india-trip', component: FirstIndiaGuidePageComponent },
   { path: 'when-to-go', component: WhenToGoPageComponent },
+  { path: 'fleet', component: FleetPageComponent },
+  { path: 'our-guides', component: OurGuidesPageComponent },
   { path: 'about', component: AboutPageComponent },
   { path: 'custom', component: CustomPageComponent },
   { path: 'contact', component: ContactPageComponent },
