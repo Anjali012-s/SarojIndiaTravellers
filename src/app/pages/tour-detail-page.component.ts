@@ -1,22 +1,22 @@
-import { CurrencyPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { EnquiryFormComponent } from '../components/enquiry-form/enquiry-form.component';
 import { SITE, whatsappUrl } from '../data/site';
+import { tourThemes } from '../data/themes';
 import { Tour, getTour } from '../data/tours';
 
 @Component({
   selector: 'app-tour-detail-page',
   standalone: true,
-  imports: [RouterLink, CurrencyPipe, EnquiryFormComponent],
+  imports: [RouterLink, EnquiryFormComponent],
   template: `
     @if (tour) {
       <section class="tour-hero" [style.backgroundImage]="'url(' + tour.hero + ')'">
         <div class="wrap">
-          <p class="eyebrow">{{ tour.region }}</p>
+          <p class="eyebrow">{{ tour.region }} · {{ themeLabel }}</p>
           <h1>{{ tour.name }}</h1>
-          <p>{{ tour.duration }} · from {{ tour.fromUsd | currency: 'USD' : 'symbol' : '1.0-0' }} pp</p>
+          <p>{{ tour.duration }} · private itinerary, quoted for your dates</p>
         </div>
       </section>
       <section class="section">
@@ -54,6 +54,14 @@ import { Tour, getTour } from '../data/tours';
                 </ul>
               </div>
             </div>
+            @if (tour.notes?.length) {
+              <h2>Good to know</h2>
+              <ul class="list">
+                @for (item of tour.notes; track item) {
+                  <li>{{ item }}</li>
+                }
+              </ul>
+            }
             <a class="btn btn-ghost" routerLink="/tours">All journeys</a>
             <p class="fineprint" style="margin-top:1rem">
               <a routerLink="/when-to-go">When to go</a> ·
@@ -66,9 +74,11 @@ import { Tour, getTour } from '../data/tours';
               <div class="card-body">
                 <h2>Get this itinerary</h2>
                 <p>
-                  From {{ tour.fromInr | currency: 'INR' : 'symbol' : '1.0-0' }} / {{ tour.fromUsd | currency: 'USD' : 'symbol' : '1.0-0' }} per person, two sharing.
+                  We quote privately for hotel class, group size, season, flights, and extras such as safari, helicopter or special darshan.
+                  See <a routerLink="/fleet">our fleet</a> and <a routerLink="/our-guides">our guides</a>.
                 </p>
-                <a class="btn" [href]="wa" target="_blank" rel="noopener">WhatsApp this tour</a>
+                <a class="btn" [href]="'tel:' + site.phoneTel">Call {{ site.phoneDisplay }}</a>
+                <a class="btn btn-ghost" [href]="wa" target="_blank" rel="noopener" style="margin-left: 0.4rem">WhatsApp this tour</a>
                 <p class="fineprint" style="margin-top:1rem">Or send the planning form — we reply on WhatsApp and email.</p>
                 <app-enquiry-form [presetTour]="tour.name" />
               </div>
@@ -88,16 +98,19 @@ export class TourDetailPageComponent {
   site = SITE;
   tour?: Tour;
   wa = '';
+  themeLabel = '';
 
   constructor(route: ActivatedRoute, title: Title) {
     route.paramMap.subscribe((params) => {
       this.tour = getTour(params.get('slug') ?? '');
       if (this.tour) {
+        this.themeLabel = tourThemes(this.tour).join(' · ');
         title.setTitle(`${this.tour.name} | Saroj India Tours`);
         this.wa = whatsappUrl(
           `Hello Saroj India Tours — I would like a quote for ${this.tour.name} (${this.tour.duration}).`
         );
       } else {
+        this.themeLabel = '';
         title.setTitle('Journey not found | Saroj India Tours');
       }
     });

@@ -140,6 +140,24 @@ p {
   background: var(--forest);
 }
 
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.filter-row .btn {
+  padding: 0.45rem 0.9rem;
+  font-size: 0.82rem;
+}
+
+.filter-row .filter-on {
+  background: var(--navy);
+  color: var(--white);
+  border-color: var(--navy);
+}
+
 .hero {
   position: relative;
   min-height: 78vh;
@@ -336,17 +354,37 @@ p {
   gap: 1.5rem;
 }
 
-.wa-float {
+.float-actions {
   position: fixed;
   right: 1.1rem;
   bottom: 1.1rem;
   z-index: 30;
-  background: var(--accent);
-  color: white;
-  padding: 0.85rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.55rem;
+}
+
+.call-float,
+.wa-float {
+  position: static;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 8.5rem;
+  padding: 0.85rem 1.15rem;
   border-radius: 999px;
   font-weight: 600;
   font-size: 0.9rem;
+  color: var(--white);
+}
+
+.call-float {
+  background: var(--navy);
+}
+
+.wa-float {
+  background: var(--accent);
 }
 
 .form {

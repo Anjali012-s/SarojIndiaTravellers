@@ -1,23 +1,23 @@
 <section class="hero" [style.backgroundImage]="'url(' + hero + ')'">
   <div class="wrap hero-inner">
     <p class="eyebrow">Delhi-based · private FIT · same-day quotes</p>
-    <h1>India, privately arranged — not a bus tour, not a 30-office claim.</h1>
+    <h1>Sedan, SUV/MUV and coaches across India — you choose fleet, language and stay.</h1>
     <p>
-      {{ site.tagline }} Golden Triangle, Rajasthan, wildlife and custom family trips, with licensed guides and a chauffeur who works for you.
+      {{ site.tagline }} {{ site.vehicles }}. Licensed guides in the language you opt. Hotels from comfortable 3-star to palace, houseboat, lodge or camp. Your party only — not a mixed public bus, not a 30-office claim.
     </p>
     <div class="hero-actions">
-      <a class="btn" routerLink="/tours">See journeys</a>
-      <a class="btn btn-ghost" [href]="wa" target="_blank" rel="noopener">WhatsApp {{ site.phoneDisplay }}</a>
+      <a class="btn" [href]="'tel:' + site.phoneTel">Call {{ site.phoneDisplay }}</a>
+      <a class="btn btn-ghost" [href]="wa" target="_blank" rel="noopener">WhatsApp</a>
     </div>
   </div>
 </section>
 
 <section class="band">
   <div class="wrap stats">
-    <div class="stat"><strong>6</strong><span>Published private itineraries</span></div>
+    <div class="stat"><strong>Fleet</strong><span>{{ site.vehicles }}</span></div>
+    <div class="stat"><strong>Guides</strong><span>Language you opt, licensed at monuments</span></div>
+    <div class="stat"><strong>Stay</strong><span>3-star to palace, houseboat, lodge or camp</span></div>
     <div class="stat"><strong>Same day</strong><span>{{ site.quoteSla }}</span></div>
-    <div class="stat"><strong>Delhi desk</strong><span>{{ site.hours }}</span></div>
-    <div class="stat"><strong>25%</strong><span>Deposit to hold hotels &amp; permits</span></div>
   </div>
 </section>
 
@@ -25,9 +25,57 @@
   <div class="wrap">
     <div class="section-head">
       <div>
+        <p class="eyebrow">You choose</p>
+        <h2>Fleet, guide language and stay — written into the quote</h2>
+        <p>
+          These are options you pick, not a one-size package. We confirm a named-language guide and the hotel band
+          before you pay a deposit. If a language or a named palace is not available for your dates, we say so in writing.
+        </p>
+      </div>
+      <a class="btn btn-ghost" routerLink="/fleet">Our fleet</a>
+    </div>
+    <div class="grid-3" style="margin-top:1.5rem">
+      <a class="card" routerLink="/fleet">
+        <div class="card-body">
+          <p class="meta">Fleet</p>
+          <h3>Sedan, SUV/MUV, coach</h3>
+          @for (item of fleet; track item.name) {
+            <p><strong>{{ item.name }}.</strong> {{ item.text }}</p>
+          }
+        </div>
+      </a>
+      <a class="card" routerLink="/our-guides">
+        <div class="card-body">
+          <p class="meta">Our guides</p>
+          <h3>Ask for the language you travel in</h3>
+          <p>
+            English and Hindi on the Delhi desk. At monuments and in cities we arrange a licensed guide in the language
+            you name.
+          </p>
+          <p class="meta">{{ guideLanguages.join(' · ') }}</p>
+          <p>Open the guides page for how we confirm a language before deposit.</p>
+        </div>
+      </a>
+      <div class="card">
+        <div class="card-body">
+          <p class="meta">Accommodation</p>
+          <h3>The stay band you opt</h3>
+          @for (item of stays; track item.name) {
+            <p><strong>{{ item.name }}.</strong> {{ item.text }}</p>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
         <p class="eyebrow">Journeys</p>
         <h2>Start with a route we already run well</h2>
-        <p>From-prices are for two adults sharing, 4-star band, low–shoulder season. We re-quote for your dates.</p>
+        <p>Each journey is quoted for your dates, hotel band and group size — no published tariff on the site.</p>
       </div>
       <a class="btn btn-ghost" routerLink="/tours">All itineraries</a>
     </div>
@@ -39,7 +87,6 @@
             <p class="meta">{{ tour.duration }} · {{ tour.region }}</p>
             <h3>{{ tour.name }}</h3>
             <p>{{ tour.summary }}</p>
-            <p class="price">From {{ tour.fromUsd | currency: 'USD' : 'symbol' : '1.0-0' }} / {{ tour.fromInr | currency: 'INR' : 'symbol' : '1.0-0' }} pp</p>
           </div>
         </a>
       }
@@ -125,20 +172,25 @@
         <li>{{ item }}</li>
       }
     </ul>
-    <p>{{ site.languages }}. {{ site.payments }}</p>
+    <p>{{ site.languages }} {{ site.payments }}</p>
   </div>
 </section>
 
 <section class="section" style="padding-top:0">
   <div class="wrap">
     <p class="eyebrow">Who this is for</p>
-    <h2>Private car, not a catalogue DMC</h2>
+    <h2>Your party — sedan, SUV/MUV or coach</h2>
+    <p>
+      {{ site.vehicles }}. We place a chauffeur-driven sedan or SUV/MUV on FIT files, and a coach when a family,
+      school, corporate, wedding-guest list or yatra needs the seats. The vehicle is reserved for your names.
+      Far circuits use the same categories with a named local partner; you still have one Delhi desk.
+    </p>
     <div class="table-wrap" style="margin-top:1.25rem">
       <table class="plain">
         <thead>
           <tr>
             <th></th>
-            <th>Coach group</th>
+            <th>Mixed public coach</th>
             <th>Giant inbound DMC</th>
             <th>Saroj</th>
           </tr>
@@ -146,9 +198,15 @@
         <tbody>
           <tr>
             <td>Who travels with you</td>
-            <td>A bus of strangers</td>
+            <td>Whoever bought a seat</td>
             <td>Private if the file is large enough</td>
             <td>Your party only</td>
+          </tr>
+          <tr>
+            <td>Vehicle</td>
+            <td>One fixed coach</td>
+            <td>Whatever the file size allows</td>
+            <td>Sedan, SUV/MUV or coach — across India, as quoted</td>
           </tr>
           <tr>
             <td>Who you message</td>

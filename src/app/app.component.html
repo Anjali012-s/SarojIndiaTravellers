@@ -4,4 +4,7 @@
   <router-outlet />
 </main>
 <app-footer />
-<a class="wa-float" [href]="wa" target="_blank" rel="noopener">WhatsApp {{ site.phoneDisplay }}</a>
+<div class="float-actions">
+  <a class="call-float" [href]="'tel:' + site.phoneTel" [attr.aria-label]="'Call ' + site.phoneDisplay">Call</a>
+  <a class="wa-float" [href]="wa" target="_blank" rel="noopener" [attr.aria-label]="'WhatsApp ' + site.phoneDisplay">WhatsApp</a>
+</div>
